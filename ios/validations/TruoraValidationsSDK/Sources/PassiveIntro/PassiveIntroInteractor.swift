@@ -85,7 +85,7 @@ extension PassiveIntroInteractor: PassiveIntroPresenterToInteractor {
     }
 
     private func handleValidationResponse(
-        _ response: Any
+        _ response: TruoraShared.Ktor_client_coreHttpResponse
     ) async throws -> ValidationCreateResponse {
         let validationResponse = try await SwiftKTORHelper.parseResponse(
             response,

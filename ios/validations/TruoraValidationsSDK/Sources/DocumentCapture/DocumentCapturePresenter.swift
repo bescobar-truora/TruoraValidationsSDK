@@ -185,6 +185,20 @@ final class DocumentCapturePresenter {
         feedbackType = .scanningManual
         updateUI()
     }
+    
+    // MARK: - Manual Mode Timer (placeholder methods)
+    
+    /// Starts timer for manual mode fallback (currently a no-op)
+    private func startManualModeTimer() {
+        // Placeholder: Timer logic can be implemented here if needed
+        // Currently, manual mode transition is handled by hasManualTimeout()
+    }
+    
+    /// Cancels manual mode timer (currently a no-op)
+    private func cancelManualModeTimer() {
+        // Placeholder: Timer cleanup logic can be implemented here if needed
+        // Currently, manual mode transition is handled by hasManualTimeout()
+    }
 }
 
 extension DocumentCapturePresenter: DocumentCaptureViewToPresenter {
@@ -208,7 +222,7 @@ extension DocumentCapturePresenter: DocumentCaptureViewToPresenter {
             }
         }
 
-        interactor?.setUploadUrls(frontUploadUrl: frontUploadUrl, reverseUploadUrl: reverseUploadUrl)
+        interactor?.setUploadUrls(frontUploadUrl: frontUploadUrl, reverseUploadUrl: isSingleSided ? nil : reverseUploadUrl)
 
         // Initialize autodetection state
         feedbackType = useAutocapture ? .none : .scanningManual
