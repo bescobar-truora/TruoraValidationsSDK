@@ -214,15 +214,20 @@ extension DocumentCapturePresenter: DocumentCaptureViewToPresenter {
         }
 
         let isSingleSided = (router.reverseUploadUrl == nil || router.reverseUploadUrl?.isEmpty == true)
-
+        
+        // Declare reverseUploadUrl outside of conditional scope
+        let reverseUploadUrl: String?
         if !isSingleSided {
-            guard let reverseUploadUrl = router.reverseUploadUrl, !reverseUploadUrl.isEmpty else {
+            guard let uploadUrl = router.reverseUploadUrl, !uploadUrl.isEmpty else {
                 view?.showError("Missing reverse upload URL")
                 return
             }
+            reverseUploadUrl = uploadUrl
+        } else {
+            reverseUploadUrl = nil
         }
 
-        interactor?.setUploadUrls(frontUploadUrl: frontUploadUrl, reverseUploadUrl: isSingleSided ? nil : reverseUploadUrl)
+        interactor?.setUploadUrls(frontUploadUrl: frontUploadUrl, reverseUploadUrl: reverseUploadUrl)
 
         // Initialize autodetection state
         feedbackType = useAutocapture ? .none : .scanningManual
