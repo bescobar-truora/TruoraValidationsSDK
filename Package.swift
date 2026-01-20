@@ -54,7 +54,8 @@ let package = Package(
         // Binary targets
         .binaryTarget(
             name: "TruoraShared",
-            path: "shared/truora/shared/build/XCFrameworks/release/TruoraShared.xcframework"
+            url: "https://github.com/bescobar-truora/TruoraValidationsSDK/releases/download/0.0.4/TruoraShared.xcframework.zip",
+            checksum: "b3f5b4a4be7c2144db8cc3a4daf22a531ad171b7d11bf49f4fbe6f3e6189b5ee"
         ),
         .binaryTarget(
             name: "TensorFlowLiteC",
