@@ -59,7 +59,8 @@ let package = Package(
         ),
         .binaryTarget(
             name: "TensorFlowLiteC",
-            path: "ios/validations/XCFrameworks/TensorFlowLiteC.xcframework"
+            url: "https://github.com/bescobar-truora/TruoraValidationsSDK/releases/download/0.0.4/TensorFlowLiteC.xcframework.zip",
+            checksum: "422958bff515cc2d08ce853cb29691e718d798cf6f97c25c708ac2a2fa2cda69"
         )
     ]
 )
